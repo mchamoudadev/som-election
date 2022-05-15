@@ -4,23 +4,13 @@ import {
 	MicrophoneIcon,
 	MinusCircleIcon,
 	PlusCircleIcon,
+	MailIcon,
+	TrashIcon,
 } from "@heroicons/react/solid";
 import { v4 as uuidv4 } from "uuid";
 const sortObjectsArray = require("sort-objects-array");
 
 const applications = [
-	{
-		id: uuidv4(),
-		name: "Abdirahman Abdishakur Warsame",
-		count: 0,
-		imageUrl: "4.jpeg",
-	},
-	{
-		id: uuidv4(),
-		name: "Shariif Shiikh Axmed",
-		count: 0,
-		imageUrl: "1.jpeg",
-	},
 	{
 		id: uuidv4(),
 		name: "Hassan Sheikh Mohamud",
@@ -45,18 +35,6 @@ const applications = [
 		count: 0,
 		imageUrl: "6.jpeg",
 	},
-	{
-		id: uuidv4(),
-		name: "Thabit cabdi Maxamed",
-		count: 0,
-		imageUrl: "7.jpeg",
-	},
-	{
-		id: uuidv4(),
-		name: "Abdirahman Ablaal",
-		count: 0,
-		imageUrl: "8.jpeg",
-	},
 ];
 
 export default function ListImage() {
@@ -76,6 +54,8 @@ export default function ListImage() {
 					"desc"
 				)
 			);
+		} else {
+			setPresidentList(applications);
 		}
 	}, [updated]);
 
@@ -105,8 +85,20 @@ export default function ListImage() {
 		setUpdated(!updated);
 	};
 
+	const resetAll = () => {
+		window.localStorage.removeItem("som_president");
+		setUpdated(!updated);
+	};
+
 	return (
 		<div className="bg-white shadow overflow-hidden sm:rounded-md mt-6  sm:mx-auto sm:w-full sm:max-w-md">
+			<button
+				onClick={() => resetAll()}
+				type="button"
+				className="my-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#2d7ef8] hover:bg-[#2d7ef8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2d7ef8]">
+				<TrashIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+				Masax Dhamman Xogta
+			</button>
 			<ul role="list" className="divide-y divide-gray-200">
 				{presidentList.length > 0 &&
 					presidentList.map((application) => (
