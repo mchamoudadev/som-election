@@ -98,7 +98,8 @@ export default function ListImage() {
 
 	const removeCount = (user) => {
 		var foundIndex = presidentList.findIndex((x) => x.id == user);
-		presidentList[foundIndex].count = presidentList[foundIndex].count - 1;
+		presidentList[foundIndex].count >= 1 &&
+			(presidentList[foundIndex].count = presidentList[foundIndex].count - 1);
 		setPresidentList(sortObjectsArray(presidentList, "count", "desc"));
 		window.localStorage.setItem("som_president", JSON.stringify(presidentList));
 		setUpdated(!updated);
