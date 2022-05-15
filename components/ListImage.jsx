@@ -23,18 +23,6 @@ const applications = [
 		count: 0,
 		imageUrl: "3.jpeg",
 	},
-	{
-		id: uuidv4(),
-		name: "Hassan Ali Khaire",
-		count: 0,
-		imageUrl: "5.jpeg",
-	},
-	{
-		id: uuidv4(),
-		name: "Siciid Deni",
-		count: 0,
-		imageUrl: "6.jpeg",
-	},
 ];
 
 export default function ListImage() {
@@ -86,16 +74,18 @@ export default function ListImage() {
 	};
 
 	const resetAll = () => {
-		window.localStorage.removeItem("som_president");
-		setUpdated(!updated);
+		if (window.confirm("Are you sure to reset ?")) {
+			window.localStorage.removeItem("som_president");
+			setUpdated(!updated);
+		}
 	};
 
 	return (
-		<div className="bg-white shadow overflow-hidden sm:rounded-md mt-6  sm:mx-auto sm:w-full sm:max-w-md">
+		<div className="bg-white shadow overflow-hidden sm:rounded-md mt-6  sm:mx-auto sm:w-full sm:max-w-md divide-y divide-gray-200">
 			<button
 				onClick={() => resetAll()}
 				type="button"
-				className="my-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#2d7ef8] hover:bg-[#2d7ef8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2d7ef8]">
+				className="my-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#d13131] hover:bg-[#d13131] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d13131]">
 				<TrashIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
 				Masax Dhamman Xogta
 			</button>
